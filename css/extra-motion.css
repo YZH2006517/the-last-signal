@@ -1,0 +1,118 @@
+/* ═══════════════════════════════════════════════
+   EXTRA MOTION — Additional cinematic motion effects
+   ═══════════════════════════════════════════════ */
+
+/* ── Continuous ambient glow pulse on hero ── */
+.mars-planet {
+  animation: marsBreathe 8s ease-in-out infinite;
+}
+@keyframes marsBreathe {
+  0%, 100% { opacity: 0.10; transform: translateY(-50%) scale(1); }
+  50% { opacity: 0.15; transform: translateY(-50%) scale(1.02); }
+}
+
+/* ── Star twinkle (deep field parallax) ── */
+.star-field::before,
+.star-field::after {
+  content: ''; position: absolute; inset: 0; opacity: 0;
+  animation: starLayerShift 12s linear infinite;
+}
+.star-field::before {
+  background: radial-gradient(1px 1px at 10% 10%, rgba(255,255,255,0.3) 50%, transparent 50%),
+              radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,0.2) 50%, transparent 50%),
+              radial-gradient(1.5px 1.5px at 60% 20%, rgba(255,255,255,0.25) 50%, transparent 50%),
+              radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.15) 50%, transparent 50%);
+  background-size: 300px 300px;
+}
+.star-field::after {
+  background: radial-gradient(1px 1px at 20% 70%, rgba(255,255,255,0.2) 50%, transparent 50%),
+              radial-gradient(1.5px 1.5px at 50% 30%, rgba(255,255,255,0.2) 50%, transparent 50%),
+              radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.15) 50%, transparent 50%);
+  background-size: 250px 250px;
+  animation-duration: 18s;
+}
+@keyframes starLayerShift {
+  0% { transform: translate(0, 0); opacity: 0.6; }
+  100% { transform: translate(-20px, -10px); opacity: 0.9; }
+}
+
+/* Mouse parallax removed — was conflicting with card hover */
+
+/* ── Scroll-triggered parallax tilt on act visuals ── */
+.act-visual-inner {
+  transition: transform 0.8s var(--ease-out);
+}
+.act-block:hover .act-visual-inner {
+  transform: scale(1.05);
+}
+
+/* Character card hover is now handled in sections.css — no override needed */
+
+/* ── Pipe node click active state ── */
+.pipe-active {
+  border-color: var(--accent-mars-glow) !important;
+  box-shadow: 0 0 40px rgba(200,75,32,0.4), 0 0 80px rgba(200,75,32,0.15);
+  transform: scale(1.05);
+  transition: all 0.3s var(--ease-out);
+}
+.pipe-node { transition: all 0.3s var(--ease-out); }
+
+/* ── Pipeline node glow pulse — BOOSTED ── */
+.pipe-node::after {
+  content: ''; position: absolute; inset: -2px; border-radius: 14px; z-index: 2;
+  opacity: 0; background: linear-gradient(135deg, var(--accent-mars-glow), transparent, var(--accent-warm));
+  transition: opacity 0.6s;
+}
+.pipe-node:hover::after { opacity: 0.6; }
+
+/* ── Tech card left-border accent slide — BOOSTED ── */
+.tech-card {
+  position: relative; overflow: hidden;
+}
+.tech-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0;
+  background: var(--accent-mars-glow); transition: height 0.5s var(--ease-out);
+  box-shadow: 0 0 20px var(--accent-mars-glow);
+}
+.tech-card:hover::before { height: 100%; }
+.tech-card:hover { box-shadow: 0 0 40px rgba(200,75,32,0.12); }
+
+/* ── Gallery item shutter reveal — BOOSTED ── */
+.gal-item { transition: transform 0.4s var(--ease-spring), border-color 0.4s, box-shadow 0.4s; }
+.gal-item:hover {
+  border-color: var(--accent-mars);
+  box-shadow: 0 0 50px rgba(200,75,32,0.2), 0 0 100px rgba(200,75,32,0.05);
+  transform: scale(1.03);
+}
+
+/* Section divider glow lines are now handled by sections.css transition bridges */
+
+/* ── Button ripple effect ── */
+.btn-primary, .btn-secondary {
+  position: relative; overflow: hidden;
+}
+.btn-primary::after, .btn-secondary::after {
+  content: ''; position: absolute; inset: 0; opacity: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 60%);
+  transition: opacity 0.3s;
+}
+.btn-primary:hover::after, .btn-secondary:hover::after { opacity: 1; }
+
+/* ── Timeline node current — no border, no glow ── */
+.tl-node-current {
+  border-color: rgba(255,255,255,0.05);  /* same as other nodes */
+  box-shadow: none;
+}
+
+/* ── Scroll indicator fade out as user scrolls ── */
+.scroll-indicator {
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+.scroll-indicator.faded { opacity: 0; transform: translateX(-50%) translateY(10px); }
+
+/* ── Smooth section-to-section color transitions ── */
+.section { transition: background 0.8s var(--ease-out); }
+
+/* ── Fade-up staggered for any remaining unrevealed elements ── */
+.fade-up-stagger { opacity: 0; transform: translateY(30px); }
+.fade-up-stagger.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }

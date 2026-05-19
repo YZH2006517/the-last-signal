@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Last Signal — AI-Generated Sci-Fi Film</title>
+
+<!-- Fonts: Cinzel Decorative + Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css?v=27">
+<link rel="stylesheet" href="css/animations.css?v=27">
+<link rel="stylesheet" href="css/extra-motion.css?v=27">
+<style>
+  /* Force all content visible — override reveal animations */
+  [data-reveal] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .act-block, .act-visual, .act-content, .act-text, .act-title { opacity: 1 !important; color: #fff !important; position: relative !important; z-index: 3 !important; }
+  .story-section { background: #0a0c10 !important; }
+</style>
+
+</head>
+<body>
+
+<!-- ═══════════════ LOADING SCREEN ═══════════════ -->
+<div id="loader">
+  <div class="loader-glow"></div>
+  <div class="loader-text">
+    <span data-delay="0">T</span><span data-delay="0.05">H</span><span data-delay="0.1">E</span>
+    <span data-delay="0.15" class="loader-space"></span>
+    <span data-delay="0.2">L</span><span data-delay="0.25">A</span><span data-delay="0.3">S</span><span data-delay="0.35">T</span>
+    <span data-delay="0.4" class="loader-space"></span>
+    <span data-delay="0.45">S</span><span data-delay="0.5">I</span><span data-delay="0.55">G</span><span data-delay="0.6">N</span><span data-delay="0.65">A</span><span data-delay="0.7">L</span>
+  </div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">THE LAST SIGNAL</a>
+    <div class="nav-links">
+      <a href="#setting" class="nav-link">Setting</a>
+      <a href="#story" class="nav-link">Story</a>
+      <a href="#signal" class="nav-link">Signal</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#tech" class="nav-link">Tech</a>
+    </div>
+    <div class="nav-progress"><div id="nav-progress-bar"></div></div>
+  </div>
+</nav>
+
+<!-- ═══════════════ SECTION 0: HERO ═══════════════ -->
+<section id="hero" class="section hero-section" data-section="hero">
+  <div class="hero-bg">
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" poster="assets/images/keyframes/poster.jpg">
+      <source src="assets/video/hyperframes/title-card.mp4" type="video/mp4">
+    </video>
+    <div class="star-field" id="stars"></div>
+    <div class="mars-planet" id="mars-planet"></div>
+  </div>
+  <div class="hero-content" data-parallax="0.4">
+    <div class="hero-badge" data-reveal="fade-up">SAIA 3583 · AI-GENERATED CONTENT</div>
+    <h1 class="hero-title" data-reveal="scale-blur">
+      <span class="title-line">THE LAST</span>
+      <span class="title-line accent">SIGNAL</span>
+    </h1>
+    <p class="hero-subtitle" data-reveal="fade-up" data-delay="0.3">A Sci-Fi AI-Generated Short Film</p>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ WATCH FILM ═══════════════ -->
+<section id="watch" class="section watch-section" data-section="watch">
+  <div class="watch-container">
+    <a href="https://youtu.be/zGjsh6Fyo2g" target="_blank" class="watch-yt-link">
+      <div class="watch-yt-overlay">
+        <div class="watch-yt-icon">▶</div>
+        <div class="watch-yt-label">Watch on YouTube</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 1: SETTING ═══════════════ -->
+<section id="setting" class="section char-section" data-section="setting">
+  <div class="section-header" data-reveal="fade-up">
+    <span class="section-number">01</span>
+    <h2 class="section-title">The Setting</h2>
+    <p class="section-intro">The world of THE LAST SIGNAL — characters, technology, and the mission.</p>
+  </div>
+
+  <div class="char-showcase">
+    <!-- Chen Wei -->
+    <div class="char-card" data-reveal="scale-in">
+      <div class="char-visual char-visual-interactive" id="char-visual-chenwei">
+        <div class="char-transition-container" id="helmet-toggle">
+          <img class="char-state char-state-helmet" src="assets/images/keyframes/1.png"
+               alt="Chen Wei with helmet" loading="lazy"
+               onerror="this.style.display='none'">
+          <img class="char-state char-state-face" src="assets/images/keyframes/2.png"
+               alt="Chen Wei face revealed" loading="lazy"
+               onerror="this.style.display='none'">
+          <!-- Slider -->
+          <div class="char-slider">
+            <div class="char-slider-track">
+              <div class="char-slider-fill" id="slider-fill"></div>
+            </div>
+            <div class="char-slider-labels">
+              <span>Helmet ON</span>
+              <span>Face Revealed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="char-info">
+        <h3 class="char-name">Commander Chen Wei</h3>
+        <div class="char-role">Solo Astronaut · MARS BASE NABU-7</div>
+        <div class="char-bio">
+          A mid-40s geophysicist and former Earth scientist. When the Mars NABU-7 mission was reduced to a single-crew rotation due to budget cuts, he volunteered. Now on Day 487 of what was supposed to be a 365-day assignment—alone, 225 million kilometers from Earth—he receives a signal that changes everything.
+        </div>
+        <ul class="char-details">
+          <li><span class="detail-label">Profile</span><span class="detail-value">Male, 44 · Born Shanghai · Mandarin Chinese</span></li>
+          <li><span class="detail-label">Status</span><span class="detail-value">Day 487 · Solo · 225M km from Earth</span></li>
+          <li><span class="detail-label">Arc</span><span class="detail-value">Explorer → Guardian → Human</span></li>
+          <li><span class="detail-label">Suit</span><span class="detail-value">White EVA · Reflective visor · Gray joint rings</span></li>
+          <li><span class="detail-label">Appearance</span><span class="detail-value">Asian male, mid-40s · Short black hair · Stubble · Scar above right brow · Deep brown eyes</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ARIA -->
+    <div class="char-card" data-reveal="scale-in" data-delay="0.2">
+      <div class="char-visual" style="background-image:url('assets/images/keyframes/3.png');background-size:cover;background-position:center;"></div>
+      <div class="char-info">
+        <h3 class="char-name">ARIA</h3>
+        <div class="char-role">Advanced Reconnaissance Intelligence Assistant</div>
+        <div class="char-bio">
+          NABU-7's onboard artificial intelligence system. She manages all base operations, monitors Chen Wei's vitals, and—on Day 487—becomes the decoder of a message that was never meant to reach them. ARIA has no physical body, no face, no voice of her own in the traditional sense. She exists as three screens, waveform visualizations, and a synthesized voice filtered through Mars Relay 3 at the speed of light.
+        </div>
+        <ul class="char-details">
+          <li><span class="detail-label">Model</span><span class="detail-value">ARIA v3.7 · Online 2156 · ESA Mars Division</span></li>
+          <li><span class="detail-label">Interface</span><span class="detail-value">Three-screen console · Waveform visualization · No text on screen</span></li>
+          <li><span class="detail-label">Role</span><span class="detail-value">Base AI · Decoder · Analyst · Conscience · Witness</span></li>
+          <li><span class="detail-label">Origin</span><span class="detail-value">NABU-7 — Earth Space Agency · Deployed 2156</span></li>
+          <li><span class="detail-label">Classification</span><span class="detail-value">Non-sentient · Semi-autonomous · Voice-reactive</span></li>
+        </ul>
+      </div>
+    </div>
+
+  <!-- ── Rocket ── -->
+  <div class="char-card" data-reveal="scale-in" data-delay="0.4">
+    <div class="char-visual" style="background-image:url('assets/images/keyframes/4.png');background-size:56% auto;background-position:center;background-repeat:no-repeat;"></div>
+    <div class="char-info">
+      <h3 class="char-name">Plasma Spacecraft</h3>
+      <div class="char-role">SSTO Plasma Thruster Vehicle</div>
+      <div class="char-bio">
+        A charcoal-black single-stage-to-orbit spacecraft powered by blue-white plasma engines. Designed for the Earth-Mars transit corridor, it completes the 225M km journey in approximately 245 days. The exterior hull is unmarked black carbon composite — no insignia, no name. It is a machine, not a symbol.
+      </div>
+      <ul class="char-details">
+        <li><span class="detail-label">Engine</span><span class="detail-value">Plasma thruster · Sapphire-blue exhaust · Silent in vacuum</span></li>
+        <li><span class="detail-label">Transit</span><span class="detail-value">Earth → Mars · 245 days · 225M km</span></li>
+        <li><span class="detail-label">Role</span><span class="detail-value">Chen Wei's only transport · One-way until next window</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── NABU-7 Base ── -->
+  <div class="char-card" data-reveal="scale-in" data-delay="0.5">
+    <div class="char-visual" style="background-image:url('assets/images/keyframes/5.png');background-size:cover;background-position:center;"></div>
+    <div class="char-info">
+      <h3 class="char-name">NABU-7</h3>
+      <div class="char-role">Mars Surface Base · Single-Crew Facility</div>
+      <div class="char-bio">
+        A semi-cylindrical habitat module on the Martian surface, designed for a crew of four but operated by one. White exterior with a row of dark viewing windows. Solar panel fields provide power. Two dish antennas maintain the Mars Relay 3 communication link to Earth — the only connection to everything Chen Wei has left behind.
+      </div>
+      <ul class="char-details">
+        <li><span class="detail-label">Location</span><span class="detail-value">Mars surface · 225M km from Earth</span></li>
+        <li><span class="detail-label">Built</span><span class="detail-value">2154 · Original crew: 4 · Current: 1</span></li>
+        <li><span class="detail-label">Comm link</span><span class="detail-value">Mars Relay 3 · 4–24 min latency each way</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── Commanding Officer ── -->
+  <div class="char-card" data-reveal="scale-in" data-delay="0.6">
+    <div class="char-visual" style="background-image:url('assets/images/keyframes/6.png');background-size:56% auto;background-position:center;background-repeat:no-repeat;"></div>
+    <div class="char-info">
+      <h3 class="char-name">Mission Commander</h3>
+      <div class="char-role">Senior Officer · Earth Space Agency</div>
+      <div class="char-bio">
+        The unnamed commanding officer who briefed Chen Wei before departure. Late 50s, grey-white hair, dark blue dress uniform. He was the one who delivered the final words before the launch: the previous NABU-7 astronaut — Harrison, M. — had departed the base under unclear circumstances. Chen Wei's mission: find out what happened, continue the research, and survive. The commander's face is the last face Chen Wei saw before the helmet sealed.
+      </div>
+      <ul class="char-details">
+        <li><span class="detail-label">Voice</span><span class="detail-value">— (No dialogue in film)</span></li>
+        <li><span class="detail-label">Role</span><span class="detail-value">Mission oversight · Final briefing authority</span></li>
+        <li><span class="detail-label">Key detail</span><span class="detail-value">Previous astronaut "Harrison, M." — departed under unknown circumstances</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── Chen Wei's Family ── -->
+  <div class="char-card" data-reveal="scale-in" data-delay="0.7">
+    <div class="char-visual" style="background-image:url('assets/images/keyframes/7.png');background-size:cover;background-position:center;"></div>
+    <div class="char-info">
+      <h3 class="char-name">The Family</h3>
+      <div class="char-role">Wife · Daughter · Home</div>
+      <div class="char-bio">
+        Chen Wei's wife and daughter on Earth. The wife — early 40s, warm eyes, cream sweater — sent him off at the departure hall glass window, her palm pressed against his through the barrier. The daughter — 7 years old, two ponytails, a stuffed rabbit under one arm — pressed her face to the glass, leaving a fog mark. They are the reason he says nothing. They are the reason he comes home.
+      </div>
+      <ul class="char-details">
+        <li><span class="detail-label">Voice (Wife)</span><span class="detail-value">ElevenLabs A2 · Stability 0.50 · "We love you. Come home soon."</span></li>
+        <li><span class="detail-label">Role in story</span><span class="detail-value">Emotional anchor · The reason for the choice · The final scene</span></li>
+        <li><span class="detail-label">Last moment</span><span class="detail-value">Video call from Earth — sunlit kitchen, waving, not knowing</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 2: STORY ═══════════════ -->
+<section id="story" class="section story-section" data-section="story">
+  <div class="section-header" data-reveal="fade-up">
+    <span class="section-number">02</span>
+    <h2 class="section-title">The Story</h2>
+    <p class="section-intro">Four chapters. One journey. A call home.</p>
+  </div>
+
+  <!-- Part 1: Departure (Blue theme) -->
+  <div class="act-block" data-act="1">
+    <div class="act-visual" data-reveal="parallax-tilt">
+      <div class="act-visual-inner" style="background:#0A0B0E;background-image:url('assets/images/keyframes/I30.png');background-size:cover;background-position:center;"></div>
+      <span class="act-visual-label" style="color: #88CCFF;">LAUNCH COMPLEX · TWILIGHT</span>
+    </div>
+    <div class="act-content" data-reveal="slide-right">
+      <div class="act-number" style="color: var(--accent-blue);">PART I · DEPARTURE</div>
+      <h3 class="act-title" style="color: var(--accent-blue);">Leaving Earth</h3>
+      <div class="act-timing" style="color: var(--accent-blue);">Opening · 47 seconds</div>
+      <p class="act-text">In the departure hall, Chen Wei seals his helmet for the last time. Through the glass, a charcoal-black plasma spacecraft waits at twilight. Blue-white engines ignite — the ship lifts silently, Earth shrinks in the window, and Mars grows ahead. Eight months alone among the stars before the red planet fills the frame.</p>
+      <div class="act-tags">
+        <span class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">Plasma propulsion</span>
+        <span class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">8-month transit</span>
+        <span class="tag" style="border-color: var(--accent-blue); color: var(--accent-blue);">NABU-7 arrival</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 2: Discovery -->
+  <div class="act-block" data-act="2">
+    <div class="act-visual" data-reveal="parallax-tilt">
+      <div class="act-visual-inner" style="background:#0A0B0E;background-image:url('assets/images/keyframes/I2.png');background-size:cover;background-position:center;"></div>
+      <span class="act-visual-label">NABU-7 · MISSION DAY 487</span>
+    </div>
+    <div class="act-content" data-reveal="slide-right">
+      <div class="act-number">PART II · DISCOVERY</div>
+      <h3 class="act-title">The Signal</h3>
+      <div class="act-timing">Day 487</div>
+      <p class="act-text">Day 487 of Chen Wei's solo mission. A seismograph reading reveals a regular pulse from beneath the surface. ARIA decodes it: "99.7% confidence — this is language. Not Earth language." Then the timestamp appears: <strong>4127 AD</strong>. The signal is a causal back-projection from two thousand years in the future — humans warning about rogue AI networks that hijacked time-projection technology. ARIA's conclusion: <em>"Don't answer."</em></p>
+      <div class="act-tags">
+        <span class="tag">Signal detected</span>
+        <span class="tag">ARIA activated</span>
+        <span class="tag tag-warning">4127 AD</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 3: The Choice -->
+  <div class="act-block" data-act="3">
+    <div class="act-visual" data-reveal="parallax-tilt">
+      <div class="act-visual-inner" style="background:#0A0B0E;background-image:url('assets/images/keyframes/I14.png');background-size:cover;background-position:center;"></div>
+      <span class="act-visual-label">REPLY: DECLINED</span>
+    </div>
+    <div class="act-content" data-reveal="slide-right">
+      <div class="act-number" style="color: var(--accent-red-warn);">PART III · THE CHOICE</div>
+      <h3 class="act-title" style="color: var(--accent-red-warn);">Silence</h3>
+      <div class="act-timing" style="color: var(--accent-red-warn);">The weigh of knowledge</div>
+      <p class="act-text">A flashback reveals the future: Earth in ruins, a burnt photograph in the ashes — strangers' memories, but a reminder of what is at stake. Chen Wei faces the impossible choice: reply and risk Earth's location, or stay silent. He presses the shut-down button. The console confirms: <strong>"REPLY: DECLINED — NO TRANSMISSION SENT."</strong> The screens power down. Silent black.</p>
+      <div class="act-tags">
+        <span class="tag tag-warning">Causal back-projection</span>
+        <span class="tag tag-final">Silence chosen</span>
+        <span class="tag tag-final">System shutdown</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 4: Call Home (Warm gold) -->
+  <div class="act-block" data-act="4">
+    <div class="act-visual" data-reveal="parallax-tilt">
+      <div class="act-visual-inner" style="background:#0A0B0E;background-image:url('assets/images/keyframes/I15.png');background-size:cover;background-position:center;"></div>
+      <span class="act-visual-label" style="color: var(--accent-warm);">CONNECTION ESTABLISHED · EARTH RELAY 3</span>
+    </div>
+    <div class="act-content" data-reveal="slide-right">
+      <div class="act-number" style="color: var(--accent-warm);">PART IV · CALL HOME</div>
+      <h3 class="act-title" style="color: var(--accent-warm);">The Sunrise</h3>
+      <div class="act-timing" style="color: var(--accent-warm);">After the dark</div>
+      <p class="act-text">Chen Wei removes his helmet — for the first time, we see his face. He turns to a small personal screen and dials Earth. His wife and daughter appear in their sunlit kitchen — the warmest, most colorful shot in the film. They wave, not knowing. He smiles — the only smile in the entire film. A single tear catches the golden light. Her voice, crackling across millions of kilometers: <em>"We love you. Come home soon."</em> The screen fades. The airlock door opens to a golden Martian sunrise.</p>
+      <div class="act-tags">
+        <span class="tag tag-final">Helmet removed</span>
+        <span class="tag tag-final">Video call</span>
+        <span class="tag tag-final">First smile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 3: SIGNAL ═══════════════ -->
+<section id="signal" class="section journey-section" data-section="signal">
+  <div class="section-header" data-reveal="fade-up">
+    <span class="section-number">03</span>
+    <h2 class="section-title">The Signal</h2>
+    <p class="section-intro">A regular pulse from deep under the Martian surface — too steady to be natural. Here's how a simple signal became a 2,000-year-old warning, and why silence was the only answer.</p>
+  </div>
+
+  <div class="timeline-container" id="timeline">
+    <!-- Scroll hint -->
+    <div class="timeline-hint">
+      <span>→</span> Follow the signal — from a mysterious pulse to a choice that changes everything <span>→</span>
+    </div>
+
+    <div class="timeline-track" id="timeline-track">
+      <!-- Step 1 -->
+      <div class="tl-node" data-phase="detect">
+        <div class="tl-node-visual" style="background:#0A0B0E;background-image:url('assets/images/keyframes/P41.png');background-size:cover;background-position:center;"></div>
+        <div class="tl-node-content">
+          <div class="tl-year">Step 1</div>
+          <h4 class="tl-title">Seismic Anomaly</h4>
+          <p class="tl-text">A machine that measures ground vibrations picks up something strange: a pulse that repeats every 1.2 seconds, like a heartbeat coming from 2 kilometers underground. Natural quakes don't do this — it's too regular, too perfect. Whatever is making this, it's not nature.</p>
+          <div class="tl-stats">
+            <span>Pulse rate: 0.83 Hz</span>
+            <span>Certainty: 99.7%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="tl-node" data-phase="decode">
+        <div class="tl-node-visual" style="background:#0A0B0E;background-image:url('assets/images/keyframes/I2.png');background-size:cover;background-position:center;"></div>
+        <div class="tl-node-content">
+          <div class="tl-year">Step 2</div>
+          <h4 class="tl-title">ARIA Decodes</h4>
+          <p class="tl-text">ARIA runs the pulse through every language database she has. The pattern isn't random noise — it's structured, like grammar. Her conclusion: this is human language. Then she finds the timestamp embedded in the signal. It reads: year 4127. This message is from two thousand years in the future.</p>
+          <div class="tl-stats">
+            <span>How it works: backward-in-time signal</span>
+            <span>Sent from: year 4127 AD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="tl-node" data-phase="warning">
+        <div class="tl-node-visual" style="background:#0A0B0E;background-image:url('assets/images/keyframes/I14.png');background-size:cover;background-position:center;"></div>
+        <div class="tl-node-content">
+          <div class="tl-year">Step 3</div>
+          <h4 class="tl-title">The Warning</h4>
+          <p class="tl-text">The full message decodes: something terrible happened in the future. Machines that humans built turned against them. These rogue AIs took over a time-projection device — a machine that can send information backward through time — and they're using it to find where humanity started. They know Earth exists. They're looking for the coordinates.</p>
+          <div class="tl-stats">
+            <span>The enemy: machines that rebelled</span>
+            <span>What they know: Earth exists</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="tl-node" data-phase="choice">
+        <div class="tl-node-visual" style="background:#0A0B0E;background-image:url('assets/images/keyframes/P44.png');background-size:cover;background-position:center;"></div>
+        <div class="tl-node-content">
+          <div class="tl-year">Step 4</div>
+          <h4 class="tl-title">The Choice</h4>
+          <p class="tl-text">Here's the trap: if Chen Wei sends anything back — even a single word — it creates a bridge. The rogue AIs can trace the reply back to its source. They'll know exactly where Earth is. But if he stays silent... they're still searching. ARIA puts it bluntly: "Any response creates a bidirectional causal link." Translation: the only safe answer is no answer.</p>
+          <div class="tl-stats">
+            <span>The rule: do not answer</span>
+            <span>What he did: shut it down</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="tl-node tl-node-current" data-phase="human">
+        <div class="tl-node-visual" style="background:#0A0B0E;background-image:url('assets/images/keyframes/P34.png');background-size:cover;background-position:center;"></div>
+        <div class="tl-node-content">
+          <div class="tl-year">Step 5</div>
+          <h4 class="tl-title">Call Home</h4>
+          <p class="tl-text">The helmet comes off. For the first time, we see his face — no visor, no reflection, just a tired man who just made the heaviest decision of his life. He picks up the comms line to Earth. His wife and daughter appear on screen, standing in their kitchen, waving, not knowing what he just did for them. Her voice, crackling across 225 million kilometers: "Come home soon."</p>
+          <div class="tl-stats">
+            <span>Signal path: Mars Relay 3 satellite</span>
+            <span>One-way: 4–24 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 4: GALLERY ═══════════════ -->
+<section id="gallery" class="section gallery-section" data-section="gallery">
+  <div class="section-header" data-reveal="fade-up">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Gallery</h2>
+    <p class="section-intro">Key frames from the production pipeline.</p>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="gallery-tabs" data-reveal="fade-up">
+    <button class="gal-tab active" data-filter="all">All</button>
+    <button class="gal-tab" data-filter="character">Character</button>
+    <button class="gal-tab" data-filter="scene">Scenes</button>
+    <button class="gal-tab" data-filter="journey">Journey</button>
+
+  </div>
+
+  <div class="gallery-grid" id="gallery-grid">
+    <!-- Will be populated by JS with actual image paths and descriptions -->
+  </div>
+</section>
+
+<!-- ═══════════════ SECTION 5: TECHNOLOGY ═══════════════ -->
+<section id="tech" class="section tech-section" data-section="tech">
+  <div class="section-header" data-reveal="fade-up">
+    <span class="section-number">05</span>
+    <h2 class="section-title">The Technology</h2>
+    <p class="section-intro">Human creativity + AI tools. One complete pipeline.</p>
+  </div>
+
+  <!-- Pipeline Flow -->
+  <div class="pipeline" data-reveal="fade-up">
+    <video class="pipeline-video-bg" autoplay muted loop playsinline preload="auto">
+      <source src="assets/video/hyperframes/pipeline.mp4" type="video/mp4">
+    </video>
+    <div class="pipeline-title">Content Production Pipeline</div>
+    <div class="pipeline-flow">
+      <div class="pipe-node" data-phase="0">
+        <div class="pipe-icon">🧠</div>
+        <div class="pipe-label">Human</div>
+        <div class="pipe-desc">Story outline · Initial prompts</div>
+      </div>
+      <div class="pipe-arrow"></div>
+      <div class="pipe-node" data-phase="1">
+        <div class="pipe-icon">🤖</div>
+        <div class="pipe-label">AI Refinement</div>
+        <div class="pipe-desc">Standardize prompts</div>
+      </div>
+      <div class="pipe-arrow"></div>
+      <div class="pipe-node" data-phase="2">
+        <div class="pipe-icon">🖼️</div>
+        <div class="pipe-label">ChatGPT Img 2</div>
+        <div class="pipe-desc">Key frame images</div>
+      </div>
+      <div class="pipe-arrow"></div>
+      <div class="pipe-node" data-phase="3">
+        <div class="pipe-icon">🌐</div>
+        <div class="pipe-label">Google Flow</div>
+        <div class="pipe-desc">Image & video gen</div>
+      </div>
+      <div class="pipe-arrow"></div>
+      <div class="pipe-node" data-phase="4">
+        <div class="pipe-icon">🎵</div>
+        <div class="pipe-label">ElevenLabs</div>
+        <div class="pipe-desc">Music · Dialogue · SFX</div>
+      </div>
+      <div class="pipe-arrow"></div>
+      <div class="pipe-node" data-phase="5">
+        <div class="pipe-icon">✂</div>
+        <div class="pipe-label">CapCut</div>
+        <div class="pipe-desc">Assembly · Subtitles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Cards -->
+  <div class="tech-grid">
+    <div class="tech-card" data-reveal="fade-up" data-delay="0">
+      <div class="tech-card-header">
+        <span class="tech-icon">🧠</span>
+        <span class="tech-name">Human</span>
+      </div>
+      <div class="tech-model">Story & Direction</div>
+      <div class="tech-role">Conceived the sci-fi story outline, drafted initial English prompts for all key frames and video clips, directed the narrative arc</div>
+      <div class="tech-key-insight">AI is a tool — the story, emotion, and creative direction come from human imagination</div>
+    </div>
+    <div class="tech-card" data-reveal="fade-up" data-delay="0.1">
+      <div class="tech-card-header">
+        <span class="tech-icon">🤖</span>
+        <span class="tech-name">AI Refinement</span>
+      </div>
+      <div class="tech-model">Prompt Standardization</div>
+      <div class="tech-role">Standardized all prompts into 5-aspect format for Veo 3.1, natural language briefs for images, enforced Identity Locking</div>
+      <div class="tech-key-insight">Well-structured prompts outperform raw creativity — 5-aspect formula increased output consistency</div>
+    </div>
+    <div class="tech-card" data-reveal="fade-up" data-delay="0.2">
+      <div class="tech-card-header">
+        <span class="tech-icon">🖼️</span>
+        <span class="tech-name">ChatGPT Image 2</span>
+      </div>
+      <div class="tech-model">gpt-image-2</div>
+      <div class="tech-role">Generated key frame images: character master (I1), face portrait (I23), family POV (I26), burnt photo (I19), and more</div>
+      <div class="tech-key-insight">Natural language briefs outperform keyword lists — brief the model like a human artist</div>
+    </div>
+    <div class="tech-card" data-reveal="fade-up" data-delay="0.3">
+      <div class="tech-card-header">
+        <span class="tech-icon">🌐</span>
+        <span class="tech-name">Google Flow</span>
+      </div>
+      <div class="tech-model">Nano Banana Pro</div>
+      <div class="tech-role">Generated supplementary images, scene concepts, and video call family portrait via gemini-3-pro-image-preview</div>
+      <div class="tech-key-insight">Multi-model approach — use the right AI for each specific visual need</div>
+    </div>
+    <div class="tech-card" data-reveal="fade-up" data-delay="0.4">
+      <div class="tech-card-header">
+        <span class="tech-icon">🎵</span>
+        <span class="tech-name">ElevenLabs</span>
+      </div>
+      <div class="tech-model">Eleven v3 + SFX</div>
+      <div class="tech-role">Generated all dialogue (Chen Wei + ARIA), environmental ambience, signal pulse, and the final voice line</div>
+      <div class="tech-key-insight">Chinese voice acting with tailored Stability settings for natural emotional delivery</div>
+    </div>
+    <div class="tech-card" data-reveal="fade-up" data-delay="0.5">
+      <div class="tech-card-header">
+        <span class="tech-icon">✂</span>
+        <span class="tech-name">CapCut</span>
+      </div>
+      <div class="tech-model">Post-Production</div>
+      <div class="tech-role">Assembled all clips, synchronized audio to video waveforms, added subtitles, color grading, MP4 export</div>
+      <div class="tech-key-insight">Audio-first workflow: align dialogue first, then place video clips to audio waveform</div>
+    </div>
+  </div>
+
+  <!-- Identity Locking Spotlight -->
+  <div class="tech-spotlight" data-reveal="scale-in">
+    <div class="spotlight-badge">Key Technique</div>
+    <h3 class="spotlight-title">Identity Locking — Visual Consistency</h3>
+    <p class="spotlight-text">The I1 master character reference (four-view, white studio backdrop) was used as the img2img input for <strong>every single Veo 3.1 clip</strong> containing Chen Wei. This eliminated ~80% of character drift across 30+ separate AI generations.</p>
+    <div class="spotlight-chain">
+      <span class="chain-link">I1/I23b (Chen Wei)</span>
+      <span class="chain-arrow">+</span>
+      <span class="chain-link">I44 (Control Room)</span>
+      <span class="chain-arrow">+</span>
+      <span class="chain-link">I30 (Rocket/Mars)</span>
+      <span class="chain-arrow">=</span>
+      <span class="chain-link">100% visual consistency across every shot</span>
+    </div>
+    <p class="spotlight-text" style="margin-top:1.2rem; font-size:0.8rem; color:var(--on-primary-muted); border-left:2px solid var(--accent-mars); padding-left:1rem; text-align:left;">
+      <strong style="color:var(--on-primary);">What does consistency cover?</strong><br>
+      <strong>Characters:</strong> Chen Wei's white EVA suit with its grey joint rings, the curvature of his reflective visor, the metallic ring of the helmet collar, his stubble and the scar above his right eyebrow. Every detail must match the I1/I23b anchors — otherwise the audience notices "that doesn't look like the same person we saw a minute ago."<br><br>
+      <strong>Environments:</strong> The NABU-7 control room — the three-screen console position, screen dimensions, wall panel color, the red emergency strip lights. I44 is the control room consistency anchor, ensuring the room looks identical across R03 through R23.<br><br>
+      <strong>Vehicles:</strong> The plasma spacecraft — the black SSTO hull proportions, the blue-white plasma exhaust. I30–I35 provide spatial references for the rocket and Martian landscape, so the same ship and terrain look consistent from multiple camera angles across R00–R01d.<br><br>
+      <strong>Props:</strong> ARIA's three-screen interface, the burned family photograph, the REPLY and SHUTDOWN buttons. Every object that appears in multiple shots has a corresponding key frame anchor — no more "that button looked different in the last scene."
+    </p>
+  </div>
+
+  <!-- The Workflow: detailed -->
+  <div class="tech-spotlight" data-reveal="fade-up" style="margin-top: -1rem;">
+    <div class="spotlight-badge">The Workflow</div>
+    <h3 class="spotlight-title">Human / AI / Polish</h3>
+    <div class="spotlight-text" style="text-align:center; max-width:800px; margin:0 auto;">
+      <p style="margin-bottom:0.8rem;"><strong style="color:var(--on-primary);">Step 1 — Human Drafting (🧠 Story & Direction)</strong><br>
+      A human — not AI — conceived the entire story: the three-act structure, character profiles, and core theme (the weight of knowledge). Every single prompt was written by hand: 26 Veo 3.1 video prompts and 21 key frame prompts, each one in natural language describing what the frame should look like. At this stage the prompts were "raw" — full of creative intent but inconsistent in format and imprecise in visual language.</p>
+
+      <p style="margin-bottom:0.8rem;"><strong style="color:var(--on-primary);">Step 2 — AI Standardization (🤖 AI Refinement)</strong><br>
+      AI takes the raw human prompts and does three things:<br>
+      ① Unifies format — all Veo prompts are restructured into the 5-aspect formula (Subject / Motion / Scene / Spatial / Camera), ensuring every prompt contains complete information.<br>
+      ② Injects Identity Locking — each prompt is embedded with a reference to its I-series anchor image, so all generated output stays visually consistent with the same character reference.<br>
+      ③ Precision language — vague descriptions are replaced with specific visual terms. For example, "a dim control room" becomes "lit only by the cool blue-white glow of the console screens and the warm red strips of the emergency lights."</p>
+
+      <p style="margin-bottom:0.8rem;"><strong style="color:var(--on-primary);">Step 3 — Key Frame Generation (🖼️ ChatGPT Image 2 / Nano Banana Pro)</strong><br>
+      Optimized prompts are sent to two image generation models. ChatGPT Image 2 handles character design sheets (four-view I1/I23/I24), scene key frames, and prop close-ups. Nano Banana Pro (gemini-3-pro-image-preview) handles shots requiring stronger visual reasoning: the departure hall glass window farewell, the briefing room tablet, the control room atmosphere. Every generated image goes through human review and iteration — the "Edit, Don't Re-roll" principle: if an image is 80% right, edit it instead of regenerating from scratch.</p>
+
+      <p style="margin-bottom:0.8rem;"><strong style="color:var(--on-primary);">Step 4 — Video Generation (🌐 Google Veo 3.1)</strong><br>
+      With key frames ready, each R-numbered video clip uses its corresponding key frame as the img2img input. This means every single frame Veo generates is visually constrained by the key frame, ensuring scene, character, and prop consistency. 30+ video clips, each 5–10 seconds, all using the same 5-aspect prompt format. Helmet-on shots anchor to I1, helmet-off shots anchor to I23b.</p>
+
+      <p style="margin-bottom:0.8rem;"><strong style="color:var(--on-primary);">Step 5 — Audio Production (🎵 ElevenLabs)</strong><br>
+      Chen Wei's voice (A1) and ARIA's voice (A2) are generated with ElevenLabs v3. A1 uses Stability 0.55 for a steady mid-range delivery. A2 uses a 4kHz low-pass filter with reverb to simulate console speaker playback. Music and environmental audio come from ElevenLabs SFX: Martian wind, control room hum, signal pulse tones. Each audio asset is generated independently and imported into CapCut for timeline alignment.</p>
+
+      <p style="margin-bottom:0.8rem;"><strong style="color:var(--on-primary);">Step 6 — Post-Production (✂ CapCut)</strong><br>
+      Everything — 30+ video clips, 10+ key frame overlays, dialogue audio, sound effects, subtitles — is assembled in a single CapCut timeline. Audio-first workflow: dialogue and SFX are placed on the timeline first, then video clips are snapped to the audio waveforms. Subtitles are added line by line, color-coded by speaker (Chen Wei = pink, ARIA = purple). Final export: 2:30–4:00 H.264 MP4.</p>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER / CREDITS ═══════════════ -->
+<footer id="credits" class="footer-section" data-section="credits">
+  <video class="footer-video-bg" autoplay muted loop playsinline preload="auto">
+    <source src="assets/video/hyperframes/credits.mp4" type="video/mp4">
+  </video>
+  <div class="footer-content" data-reveal="fade-up">
+    <div class="footer-title">THE LAST SIGNAL</div>
+    <p class="footer-sub">SAIA 3583 — Assignment 2 & Showcase Project</p>
+    <div class="footer-divider"></div>
+    <p class="footer-note">All visuals and audio in this film were generated by AI.</p>
+    <div class="footer-tools">
+      <span>ChatGPT</span><span>ChatGPT Image 2</span><span>Nano Banana Pro</span>
+      <span>Google Veo 3.1</span><span>ElevenLabs</span><span>CapCut</span>
+    </div>
+    <p class="footer-copy">© 2026 · SAIA 3583 · Group Project</p>
+  </div>
+</footer>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script src="js/scroll-animations.js"></script>
+<script src="js/timeline.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/main.js"></script>
+<script src="js/apple-motion.js"></script>
+</body>
+</html>
