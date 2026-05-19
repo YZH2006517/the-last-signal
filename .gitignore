@@ -18,4 +18,10 @@ assets/video/
 # Hyperframes (big rendered files)
 assets/video/hyperframes/
 
+# Dev files
+design.md
+start.bat
+hyperframes/
+hyperframes-render/
+
 # Keep this
