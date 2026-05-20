@@ -63,17 +63,17 @@
         f.position.set(-2, 1, -1);
         scene.add(f);
       } else if (lightMode === 'front') {
-        // Rocket — bright front light to reveal dark surfaces
-        scene.add(new THREE.AmbientLight(0x888888, 1.2));
-        var k2 = new THREE.DirectionalLight(0xffffff, 1.5);
-        k2.position.set(0, 0.5, 3);
-        scene.add(k2);
-        var f2 = new THREE.DirectionalLight(0xffffff, 0.8);
-        f2.position.set(-1, 1, 2);
-        scene.add(f2);
-        var b2 = new THREE.DirectionalLight(0x8888ff, 0.5);
-        b2.position.set(0, -1, -2);
-        scene.add(b2);
+        // Rocket — 360° wrap lighting to reveal dark surfaces from every angle
+        scene.add(new THREE.AmbientLight(0xaaaaaa, 2.0));
+        var positions = [
+          [2, 1, 2], [-2, 1, 2], [2, -1, 2], [-2, -1, 2],
+          [2, 1, -2], [-2, 1, -2], [0, 2, 0], [0, -2, 0]
+        ];
+        positions.forEach(function(pos) {
+          var l = new THREE.DirectionalLight(0xffffff, 0.6);
+          l.position.set(pos[0], pos[1], pos[2]);
+          scene.add(l);
+        });
       } else {
         // Default — balanced
         scene.add(new THREE.AmbientLight(0x888888, 1.5));
