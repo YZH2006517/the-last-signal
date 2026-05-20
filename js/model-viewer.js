@@ -26,7 +26,7 @@
     try {
       // Scene
       var scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xEEEEEE);
+      scene.background = new THREE.Color(0x000000);
 
       // Camera
       var camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
