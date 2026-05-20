@@ -4,101 +4,83 @@
 (function() {
   'use strict';
 
-  const CONTAINERS = document.querySelectorAll('.model-3d-container');
-
+  var CONTAINERS = document.querySelectorAll('.model-3d-container');
   if (!CONTAINERS.length) return;
 
-  // Load Three.js and OrbitControls dynamically
-  function loadScript(url) {
-    return new Promise((resolve, reject) => {
-      // Use ES module import for Three.js
-      import(url).then(mod => resolve(mod)).catch(reject);
-    });
+  // Wait for THREE to be loaded
+  function waitForThree(cb) {
+    if (typeof THREE !== 'undefined') { cb(); return; }
+    var check = setInterval(function() {
+      if (typeof THREE !== 'undefined') { clearInterval(check); cb(); }
+    }, 100);
+    setTimeout(function() { clearInterval(check); cb(); }, 10000);
   }
 
-  async function initViewer(container) {
-    const glbSrc = container.dataset.src;
+  function initViewer(container) {
+    var glbSrc = container.getAttribute('data-src');
     if (!glbSrc) return;
 
-    try {
-      const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
-      const { OrbitControls } = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js');
-      const { GLTFLoader } = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js');
+    var width = container.clientWidth || 300;
+    var height = container.clientHeight || 300;
 
-      // Scene setup
-      const scene = new THREE.Scene();
+    try {
+      // Scene
+      var scene = new THREE.Scene();
       scene.background = new THREE.Color(0x0A0B0E);
 
       // Camera
-      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
-      camera.position.set(1.5, 0.8, 1.5);
+      var camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+      camera.position.set(1.2, 0.6, 1.2);
 
       // Renderer
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-      renderer.setSize(container.clientWidth, container.clientHeight);
+      var renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.2;
+      renderer.toneMappingExposure = 1.5;
       container.appendChild(renderer.domElement);
 
       // Controls
-      const controls = new OrbitControls(camera, renderer.domElement);
+      var controls = new THREE.OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
-      controls.dampingFactor = 0.05;
+      controls.dampingFactor = 0.08;
       controls.autoRotate = true;
-      controls.autoRotateSpeed = 3;
+      controls.autoRotateSpeed = 4;
       controls.minDistance = 0.5;
-      controls.maxDistance = 10;
+      controls.maxDistance = 8;
       controls.target.set(0, 0, 0);
 
-      // Lighting
-      const ambientLight = new THREE.AmbientLight(0x404060, 0.8);
-      scene.add(ambientLight);
+      // Lights
+      scene.add(new THREE.AmbientLight(0x404080, 0.6));
+      var key = new THREE.DirectionalLight(0xffffff, 1.2);
+      key.position.set(2, 3, 4);
+      scene.add(key);
+      var fill = new THREE.DirectionalLight(0x8888ff, 0.4);
+      fill.position.set(-2, 1, -1);
+      scene.add(fill);
 
-      const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
-      keyLight.position.set(2, 3, 4);
-      scene.add(keyLight);
+      // Loader
+      var loader = new THREE.GLTFLoader();
+      loader.load(glbSrc, function(gltf) {
+        var model = gltf.scene;
 
-      const fillLight = new THREE.DirectionalLight(0x8888ff, 0.5);
-      fillLight.position.set(-2, 1, -1);
-      scene.add(fillLight);
-
-      const rimLight = new THREE.DirectionalLight(0xff8844, 0.3);
-      rimLight.position.set(0, -1, -2);
-      scene.add(rimLight);
-
-      // Load GLB
-      const loader = new GLTFLoader();
-      loader.load(
-        glbSrc,
-        function(gltf) {
-          const model = gltf.scene;
-          
-          // Auto-center the model
-          const box = new THREE.Box3().setFromObject(model);
-          const center = box.getCenter(new THREE.Vector3());
-          const size = box.getSize(new THREE.Vector3());
-          
-          model.position.sub(center);
-          
-          // Scale if too big or too small
-          const maxDim = Math.max(size.x, size.y, size.z);
-          if (maxDim > 0) {
-            const scale = 2 / maxDim;
-            model.scale.set(scale, scale, scale);
-          }
-
-          scene.add(model);
-          renderer.render(scene, camera);
-        },
-        undefined,
-        function(error) {
-          console.warn('[3D] Failed to load', glbSrc, error);
-          container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#6B7280;font-family:monospace;font-size:0.6rem;">Failed to load model</div>';
+        // Center and scale
+        var box = new THREE.Box3().setFromObject(model);
+        var center = box.getCenter(new THREE.Vector3());
+        var size = box.getSize(new THREE.Vector3());
+        model.position.sub(center);
+        var maxDim = Math.max(size.x, size.y, size.z);
+        if (maxDim > 0 && maxDim < 10) {
+          var s = 1.8 / maxDim;
+          model.scale.set(s, s, s);
         }
-      );
 
-      // Animation loop
+        scene.add(model);
+      }, undefined, function(err) {
+        console.warn('[3D] Load error:', glbSrc, err);
+      });
+
+      // Animation
       function animate() {
         requestAnimationFrame(animate);
         controls.update();
@@ -106,24 +88,26 @@
       }
       animate();
 
-      // Handle resize
+      // Resize
       function onResize() {
-        const w = container.clientWidth;
-        const h = container.clientHeight;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
+        var w = container.clientWidth;
+        var h = container.clientHeight;
+        if (w > 0 && h > 0) {
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w, h);
+        }
       }
       window.addEventListener('resize', onResize);
 
-    } catch(err) {
-      console.warn('[3D] Viewer error:', err);
-      container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#6B7280;font-family:monospace;font-size:0.6rem;">3D viewer unavailable</div>';
+    } catch(e) {
+      console.warn('[3D] Init error:', e.message);
     }
   }
 
-  // Initialize all viewers
-  CONTAINERS.forEach(function(c) { initViewer(c); });
-
-  console.log('[3D] Viewer initialized for', CONTAINERS.length, 'models');
+  // Load all when ready
+  waitForThree(function() {
+    CONTAINERS.forEach(function(c) { initViewer(c); });
+    console.log('[3D] Viewer initialized for', CONTAINERS.length, 'models');
+  });
 })();
