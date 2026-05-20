@@ -50,17 +50,43 @@
       controls.maxDistance = 8;
       controls.target.set(0, 0, 0);
 
-      // Lights — bright for dark models
-      scene.add(new THREE.AmbientLight(0x888888, 1.5));
-      var key = new THREE.DirectionalLight(0xffffff, 2.0);
-      key.position.set(3, 4, 5);
-      scene.add(key);
-      var fill = new THREE.DirectionalLight(0xccccff, 1.0);
-      fill.position.set(-3, 2, -2);
-      scene.add(fill);
-      var rim = new THREE.DirectionalLight(0xffffff, 0.8);
-      rim.position.set(0, -2, -3);
-      scene.add(rim);
+      // Per-model lighting config
+      var lightMode = container.getAttribute('data-lighting') || 'default';
+
+      if (lightMode === 'soft') {
+        // Chen Wei — soft, dim
+        scene.add(new THREE.AmbientLight(0x666666, 0.6));
+        var k = new THREE.DirectionalLight(0xffffff, 0.8);
+        k.position.set(2, 3, 4);
+        scene.add(k);
+        var f = new THREE.DirectionalLight(0x8888ff, 0.3);
+        f.position.set(-2, 1, -1);
+        scene.add(f);
+      } else if (lightMode === 'front') {
+        // Rocket — bright front light to reveal dark surfaces
+        scene.add(new THREE.AmbientLight(0x888888, 1.2));
+        var k2 = new THREE.DirectionalLight(0xffffff, 1.5);
+        k2.position.set(0, 0.5, 3);
+        scene.add(k2);
+        var f2 = new THREE.DirectionalLight(0xffffff, 0.8);
+        f2.position.set(-1, 1, 2);
+        scene.add(f2);
+        var b2 = new THREE.DirectionalLight(0x8888ff, 0.5);
+        b2.position.set(0, -1, -2);
+        scene.add(b2);
+      } else {
+        // Default — balanced
+        scene.add(new THREE.AmbientLight(0x888888, 1.5));
+        var k3 = new THREE.DirectionalLight(0xffffff, 2.0);
+        k3.position.set(3, 4, 5);
+        scene.add(k3);
+        var f3 = new THREE.DirectionalLight(0xccccff, 1.0);
+        f3.position.set(-3, 2, -2);
+        scene.add(f3);
+        var r3 = new THREE.DirectionalLight(0xffffff, 0.8);
+        r3.position.set(0, -2, -3);
+        scene.add(r3);
+      }
 
       // Loader
       var loader = new THREE.GLTFLoader();
