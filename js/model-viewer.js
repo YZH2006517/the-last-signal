@@ -26,7 +26,7 @@
     try {
       // Scene
       var scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x4A4A4A);
+      scene.background = new THREE.Color(0xEEEEEE);
 
       // Camera
       var camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
@@ -37,7 +37,7 @@
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.5;
+      renderer.toneMappingExposure = 2.0;
       container.appendChild(renderer.domElement);
 
       // Controls
