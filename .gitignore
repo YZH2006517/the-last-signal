@@ -28,3 +28,9 @@ hyperframes-render/
 
 # Zip files
 *.zip
+
+# 3D models
+assets/3d/
+js/OrbitControls.js
+js/GLTFLoader.js
+js/model-viewer.js
