@@ -12,9 +12,11 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/sections.css?v=33">
-<link rel="stylesheet" href="css/animations.css?v=33">
-<link rel="stylesheet" href="css/extra-motion.css?v=33">
+<link rel="stylesheet" href="css/sections.css?v=34">
+<link rel="stylesheet" href="css/animations.css?v=34">
+<link rel="stylesheet" href="css/extra-motion.css?v=34">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<style>model-viewer::part(default-progress-bar){display:none}</style>
 <style>
   /* Force all content visible — override reveal animations */
   [data-reveal] { opacity: 1 !important; transform: none !important; filter: none !important; }
@@ -219,6 +221,33 @@
         <li><span class="detail-label">Role in story</span><span class="detail-value">Emotional anchor · The reason for the choice · The final scene</span></li>
         <li><span class="detail-label">Last moment</span><span class="detail-value">Video call from Earth — sunlit kitchen, waving, not knowing</span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3D MODELS GALLERY ═══════════════ -->
+<section id="models-3d" class="section models-3d-section" data-section="models-3d">
+  <div class="section-header" data-reveal="fade-up">
+    <span class="section-number">+</span>
+    <h2 class="section-title">3D Assets</h2>
+    <p class="section-intro">Interactive 3D models — drag to rotate, scroll to zoom.</p>
+  </div>
+  <div class="models-3d-grid">
+    <div class="model-3d-card">
+      <model-viewer src="assets/3d/chenwei.glb" camera-controls auto-rotate interaction-prompt="none" loading="eager" shadow-intensity="1"></model-viewer>
+      <div class="model-3d-label">Chen Wei</div>
+    </div>
+    <div class="model-3d-card">
+      <model-viewer src="assets/3d/ARIA.glb" camera-controls auto-rotate interaction-prompt="none" loading="eager" shadow-intensity="1"></model-viewer>
+      <div class="model-3d-label">ARIA Console</div>
+    </div>
+    <div class="model-3d-card">
+      <model-viewer src="assets/3d/rocket.glb" camera-controls auto-rotate interaction-prompt="none" loading="eager" shadow-intensity="1"></model-viewer>
+      <div class="model-3d-label">Plasma Spacecraft</div>
+    </div>
+    <div class="model-3d-card">
+      <model-viewer src="assets/3d/base.glb" camera-controls auto-rotate interaction-prompt="none" loading="eager" shadow-intensity="1"></model-viewer>
+      <div class="model-3d-label">NABU-7 Base</div>
     </div>
   </div>
 </section>
