@@ -74,6 +74,13 @@
           l.position.set(pos[0], pos[1], pos[2]);
           scene.add(l);
         });
+      // Background grid for rocket
+      var bgMode = container.getAttribute('data-bg') || '';
+      if (bgMode === 'grid') {
+        scene.background = new THREE.Color(0xE0E0E0);
+        var grid = new THREE.GridHelper(5, 20, 0x999999, 0xBBBBBB);
+        grid.position.y = -0.6;
+        scene.add(grid);
       } else {
         // Default — balanced
         scene.add(new THREE.AmbientLight(0x888888, 1.5));
