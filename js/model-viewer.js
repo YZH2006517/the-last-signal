@@ -26,7 +26,7 @@
     try {
       // Scene
       var scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x0A0B0E);
+      scene.background = new THREE.Color(0x4A4A4A);
 
       // Camera
       var camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
@@ -45,7 +45,7 @@
       controls.enableDamping = true;
       controls.dampingFactor = 0.08;
       controls.autoRotate = true;
-      controls.autoRotateSpeed = 4;
+      controls.autoRotateSpeed = 1.5;
       controls.minDistance = 0.5;
       controls.maxDistance = 8;
       controls.target.set(0, 0, 0);
