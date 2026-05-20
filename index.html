@@ -12,9 +12,14 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/sections.css?v=28">
-<link rel="stylesheet" href="css/animations.css?v=28">
-<link rel="stylesheet" href="css/extra-motion.css?v=28">
+<link rel="stylesheet" href="css/sections.css?v=30">
+<link rel="stylesheet" href="css/animations.css?v=30">
+<link rel="stylesheet" href="css/extra-motion.css?v=30">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<style>
+  model-viewer { width: 100%; height: 100%; }
+  model-viewer::part(default-progress-bar) { display: none; }
+</style>
 <style>
   /* Force all content visible — override reveal animations */
   [data-reveal] { opacity: 1 !important; transform: none !important; filter: none !important; }
@@ -137,7 +142,9 @@
 
     <!-- ARIA -->
     <div class="char-card" data-reveal="scale-in" data-delay="0.2">
-      <div class="char-visual" style="background-image:url('assets/images/keyframes/3.png');background-size:cover;background-position:center;"></div>
+      <div class="char-visual" style="background:#0A0B0E;overflow:hidden;">
+        <model-viewer src="assets/3d/ARIA.glb" auto-rotate camera-controls interaction-prompt="none" loading="eager" shadow-intensity="1" style="height:100%;width:100%;"></model-viewer>
+      </div>
       <div class="char-info">
         <h3 class="char-name">ARIA</h3>
         <div class="char-role">Advanced Reconnaissance Intelligence Assistant</div>
@@ -156,7 +163,9 @@
 
   <!-- ── Rocket ── -->
   <div class="char-card" data-reveal="scale-in" data-delay="0.4">
-    <div class="char-visual" style="background-image:url('assets/images/keyframes/4.png');background-size:56% auto;background-position:center;background-repeat:no-repeat;"></div>
+    <div class="char-visual" style="background:#0A0B0E;overflow:hidden;">
+      <model-viewer src="assets/3d/rocket.glb" auto-rotate camera-controls interaction-prompt="none" loading="eager" shadow-intensity="1" style="height:100%;width:100%;"></model-viewer>
+    </div>
     <div class="char-info">
       <h3 class="char-name">Plasma Spacecraft</h3>
       <div class="char-role">SSTO Plasma Thruster Vehicle</div>
@@ -173,7 +182,9 @@
 
   <!-- ── NABU-7 Base ── -->
   <div class="char-card" data-reveal="scale-in" data-delay="0.5">
-    <div class="char-visual" style="background-image:url('assets/images/keyframes/5.png');background-size:cover;background-position:center;"></div>
+    <div class="char-visual" style="background:#0A0B0E;overflow:hidden;">
+      <model-viewer src="assets/3d/base.glb" auto-rotate camera-controls interaction-prompt="none" loading="eager" shadow-intensity="1" style="height:100%;width:100%;"></model-viewer>
+    </div>
     <div class="char-info">
       <h3 class="char-name">NABU-7</h3>
       <div class="char-role">Mars Surface Base · Single-Crew Facility</div>
