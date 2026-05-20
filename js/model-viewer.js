@@ -37,7 +37,7 @@
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 2.0;
+      renderer.toneMappingExposure = 2.5;
       container.appendChild(renderer.domElement);
 
       // Controls
@@ -50,14 +50,17 @@
       controls.maxDistance = 8;
       controls.target.set(0, 0, 0);
 
-      // Lights
-      scene.add(new THREE.AmbientLight(0x404080, 0.6));
-      var key = new THREE.DirectionalLight(0xffffff, 1.2);
-      key.position.set(2, 3, 4);
+      // Lights — bright for dark models
+      scene.add(new THREE.AmbientLight(0x888888, 1.5));
+      var key = new THREE.DirectionalLight(0xffffff, 2.0);
+      key.position.set(3, 4, 5);
       scene.add(key);
-      var fill = new THREE.DirectionalLight(0x8888ff, 0.4);
-      fill.position.set(-2, 1, -1);
+      var fill = new THREE.DirectionalLight(0xccccff, 1.0);
+      fill.position.set(-3, 2, -2);
       scene.add(fill);
+      var rim = new THREE.DirectionalLight(0xffffff, 0.8);
+      rim.position.set(0, -2, -3);
+      scene.add(rim);
 
       // Loader
       var loader = new THREE.GLTFLoader();
