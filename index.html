@@ -12,9 +12,9 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/sections.css?v=31">
-<link rel="stylesheet" href="css/animations.css?v=31">
-<link rel="stylesheet" href="css/extra-motion.css?v=31">
+<link rel="stylesheet" href="css/sections.css?v=32">
+<link rel="stylesheet" href="css/animations.css?v=32">
+<link rel="stylesheet" href="css/extra-motion.css?v=32">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <style>
   model-viewer { width: 100%; height: 100%; }
@@ -108,7 +108,7 @@
 
   <div class="char-showcase">
     <!-- Chen Wei -->
-    <div class="char-card" data-reveal="scale-in">
+    <div class="setting-row"><div class="char-card" data-reveal="scale-in">
       <div class="char-visual char-visual-interactive" id="char-visual-chenwei">
         <div class="char-transition-container" id="helmet-toggle">
           <img class="char-state char-state-helmet" src="assets/images/keyframes/1.png"
@@ -136,17 +136,23 @@
           A mid-40s geophysicist and former Earth scientist. When the Mars NABU-7 mission was reduced to a single-crew rotation due to budget cuts, he volunteered. Now on Day 487 of what was supposed to be a 365-day assignment—alone, 225 million kilometers from Earth—he receives a signal that changes everything.
         </div>
         <ul class="char-details">
-          <li><span class="detail-label">Profile</span><span class="detail-value">Male, 44 · Born Shanghai · Mandarin Chinese</span></li>
+          <li><span class="detail-label">Profile</span><span class="detail-value">Male, 44 · Born in Shanghai · Speaks Mandarin</span></li>
           <li><span class="detail-label">Status</span><span class="detail-value">Day 487 · Solo · 225M km from Earth</span></li>
           <li><span class="detail-label">Arc</span><span class="detail-value">Explorer → Guardian → Human</span></li>
           <li><span class="detail-label">Suit</span><span class="detail-value">White EVA · Reflective visor · Gray joint rings</span></li>
           <li><span class="detail-label">Appearance</span><span class="detail-value">Asian male, mid-40s · Short black hair · Stubble · Scar above right brow · Deep brown eyes</span></li>
         </ul>
       </div>
+      </div>
+    </div>
+    <div class="model-preview">
+      <model-viewer src="assets/3d/chenwei.glb" camera-controls auto-rotate interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
+      <div class="model-label">Chen Wei · 3D Model</div>
     </div>
 
-    <!-- ARIA -->
-    <div class="char-card has-3d" data-reveal="scale-in" data-delay="0.2">
+    </div>
+<div class="setting-row"><!-- ARIA -->
+    <div class="char-card" data-reveal="scale-in" data-delay="0.2">
       <div class="char-visual" style="background-image:url('assets/images/keyframes/3.png');background-size:cover;background-position:center;"></div>
       <div class="char-info">
         <h3 class="char-name">ARIA</h3>
@@ -162,13 +168,16 @@
           <li><span class="detail-label">Classification</span><span class="detail-value">Non-sentient · Semi-autonomous · Voice-reactive</span></li>
         </ul>
       </div>
-      <div class="char-3d">
-        <model-viewer src="assets/3d/ARIA.glb" auto-rotate camera-controls interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
       </div>
     </div>
+    <div class="model-preview">
+      <model-viewer src="assets/3d/ARIA.glb" camera-controls auto-rotate interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
+      <div class="model-label">ARIA Console · 3D Model</div>
+    </div>
 
-  <!-- ── Rocket ── -->
-  <div class="char-card has-3d" data-reveal="scale-in" data-delay="0.4">
+  </div>
+<div class="setting-row"><!-- ── Rocket ── -->
+  <div class="char-card" data-reveal="scale-in" data-delay="0.4">
     <div class="char-visual" style="background-image:url('assets/images/keyframes/4.png');background-size:56% auto;background-position:center;background-repeat:no-repeat;"></div>
     <div class="char-info">
       <h3 class="char-name">Plasma Spacecraft</h3>
@@ -184,11 +193,16 @@
     </div>
     <div class="char-3d">
       <model-viewer src="assets/3d/rocket.glb" auto-rotate camera-controls interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
+      </div>
     </div>
-  </div>
+    <div class="model-preview">
+      <model-viewer src="assets/3d/rocket.glb" camera-controls auto-rotate interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
+      <div class="model-label">Plasma Spacecraft · 3D Model</div>
+    </div>
 
-  <!-- ── NABU-7 Base ── -->
-  <div class="char-card has-3d" data-reveal="scale-in" data-delay="0.5">
+  </div>
+<div class="setting-row"><!-- ── NABU-7 Base ── -->
+  <div class="char-card" data-reveal="scale-in" data-delay="0.5">
     <div class="char-visual" style="background-image:url('assets/images/keyframes/5.png');background-size:cover;background-position:center;"></div>
     <div class="char-info">
       <h3 class="char-name">NABU-7</h3>
@@ -204,10 +218,15 @@
     </div>
     <div class="char-3d">
       <model-viewer src="assets/3d/base.glb" auto-rotate camera-controls interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
+      </div>
     </div>
-  </div>
+    <div class="model-preview">
+      <model-viewer src="assets/3d/base.glb" camera-controls auto-rotate interaction-prompt="none" loading="lazy" shadow-intensity="1"></model-viewer>
+      <div class="model-label">NABU-7 Base · 3D Model</div>
+    </div>
 
-  <!-- ── Commanding Officer ── -->
+  </div>
+<!-- ── Commanding Officer ── -->
   <div class="char-card" data-reveal="scale-in" data-delay="0.6">
     <div class="char-visual" style="background-image:url('assets/images/keyframes/6.png');background-size:56% auto;background-position:center;background-repeat:no-repeat;"></div>
     <div class="char-info">
