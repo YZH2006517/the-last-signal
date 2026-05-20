@@ -12,9 +12,9 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/sections.css?v=34">
-<link rel="stylesheet" href="css/animations.css?v=34">
-<link rel="stylesheet" href="css/extra-motion.css?v=34">
+<link rel="stylesheet" href="css/sections.css?v=35">
+<link rel="stylesheet" href="css/animations.css?v=35">
+<link rel="stylesheet" href="css/extra-motion.css?v=35">
 
 <style>
   /* Force all content visible — override reveal animations */
@@ -231,41 +231,25 @@
     <h2 class="section-title">3D Assets</h2>
     <p class="section-intro">Interactive 3D models (click to view, drag to rotate).</p>
   </div>
-  <div class="models-3d-grid">
-    <div class="model-card">
-      <a href="assets/3d/chenwei.glb" target="_blank" class="model-link">
-        <img src="assets/images/keyframes/1.png" alt="Chen Wei" class="model-thumb">
-        <span class="model-badge">3D</span>
-        <div class="model-overlay">View 3D Model ↗</div>
-      </a>
-      <div class="model-name">Chen Wei</div>
+    <div class="models-3d-grid">
+    <div class="model-3d-card">
+      <div class="model-3d-container" data-src="assets/3d/chenwei.glb"></div>
+      <div class="model-3d-label">Chen Wei</div>
     </div>
-    <div class="model-card">
-      <a href="assets/3d/ARIA.glb" target="_blank" class="model-link">
-        <img src="assets/images/keyframes/3.png" alt="ARIA" class="model-thumb">
-        <span class="model-badge">3D</span>
-        <div class="model-overlay">View 3D Model ↗</div>
-      </a>
-      <div class="model-name">ARIA Console</div>
+    <div class="model-3d-card">
+      <div class="model-3d-container" data-src="assets/3d/ARIA.glb"></div>
+      <div class="model-3d-label">ARIA Console</div>
     </div>
-    <div class="model-card">
-      <a href="assets/3d/rocket.glb" target="_blank" class="model-link">
-        <img src="assets/images/keyframes/4.png" alt="Rocket" class="model-thumb">
-        <span class="model-badge">3D</span>
-        <div class="model-overlay">View 3D Model ↗</div>
-      </a>
-      <div class="model-name">Plasma Spacecraft</div>
+    <div class="model-3d-card">
+      <div class="model-3d-container" data-src="assets/3d/rocket.glb"></div>
+      <div class="model-3d-label">Plasma Spacecraft</div>
     </div>
-    <div class="model-card">
-      <a href="assets/3d/base.glb" target="_blank" class="model-link">
-        <img src="assets/images/keyframes/5.png" alt="Base" class="model-thumb">
-        <span class="model-badge">3D</span>
-        <div class="model-overlay">View 3D Model ↗</div>
-      </a>
-      <div class="model-name">NABU-7 Base</div>
+    <div class="model-3d-card">
+      <div class="model-3d-container" data-src="assets/3d/base.glb"></div>
+      <div class="model-3d-label">NABU-7 Base</div>
     </div>
   </div>
-</section>
+</section></section>
 
 <!-- ═══════════════ SECTION 2: STORY ═══════════════ --><!-- ═══════════════ SECTION 2: STORY ═══════════════ -->
 <section id="story" class="section story-section" data-section="story">
@@ -651,5 +635,6 @@
 <script src="js/gallery.js"></script>
 <script src="js/main.js"></script>
 <script src="js/apple-motion.js"></script>
+<script src="js/model-viewer.js"></script>
 </body>
 </html>
